@@ -51,4 +51,15 @@ export class ListaDeCompraService {
     return item;
   }
 
+  public editarItemDaLista(itemParaEditar: Item, novoValorDoItem: string): void {
+    const itemEditado: Item = {
+      id: itemParaEditar.id,
+      nome: novoValorDoItem,
+      data: new Date().toLocaleString('pt-BR'),
+      comprado: itemParaEditar.comprado
+    }
+    const id = itemParaEditar.id;
+    this.listaDeCompra.splice(Number(id)-1, 1, itemEditado);
+  }
+
 }

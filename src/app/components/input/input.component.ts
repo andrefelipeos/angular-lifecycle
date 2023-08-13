@@ -12,7 +12,9 @@ export class InputComponent implements OnInit, OnChanges {
   @Input()
   public itemParaEditar!: Item;
 
-  valorItem!: string;
+  public editando: boolean = false;
+  public textoDoBotao: string = "Salvar Item";
+  public valorItem!: string;
 
   constructor(private listaDeComprasService: ListaDeCompraService) { }
 
@@ -29,8 +31,17 @@ export class InputComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (!changes['itemParaEditar'].isFirstChange()) {
+      this.editando = true;
+      this.textoDoBotao = "Editar Item";
       this.valorItem = this.itemParaEditar.nome;
     }
+  }
+
+  public editarItem(): void {
+    this.listaDeComprasService.editarItemDaLista(this.itemParaEditar, this.valorItem);
+    this.limparCampo();
+    this.editando = false;
+    this.textoDoBotao = "Salvar Item";
   }
 
 }

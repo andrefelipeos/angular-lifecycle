@@ -34,4 +34,21 @@ export class ListaDeCompraService {
   getListaDeCompra(){
     return this.listaDeCompra;
   }
+
+  adicionarItemNaLista(nomeDoItem: string): void {
+    const item = this.criarItem(nomeDoItem);
+    this.listaDeCompra.push(item);
+  }
+
+  private criarItem(nomeDoItem: string): Item {
+    const id: number = this.listaDeCompra.length + 1;
+    const item: Item = {
+      id: id,
+      nome: nomeDoItem,
+      data: new Date().toLocaleString('pt-BR'),
+      comprado: false
+    }
+    return item;
+  }
+
 }

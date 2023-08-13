@@ -34,6 +34,7 @@ export class AppComponent implements OnInit, DoCheck {
 
   public limparLista(): void {
     this.listaDeCompras = [];
+    this.listaDeComprasService.limparLocalStorage();
   }
 
 }

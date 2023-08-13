@@ -11,6 +11,7 @@ export class AppComponent implements OnInit {
 
   title = 'app-lista-de-compras';
   listaDeCompras!: Array<Item>;
+  public itemParaEditar!: Item;
 
   constructor(private listaDeComprasService: ListaDeCompraService) { }
 
@@ -19,7 +20,7 @@ export class AppComponent implements OnInit {
   }
 
   public editarItem(item: Item): void {
-    console.log(item);
+    this.itemParaEditar = item;
   }
 
 }

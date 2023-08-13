@@ -27,4 +27,9 @@ export class AppComponent implements OnInit, DoCheck {
     this.itemParaEditar = item;
   }
 
+  public excluirItem(id: number): void {
+    const index: number = this.listaDeCompras.findIndex(item => item.id === id);
+    this.listaDeCompras.splice(index, 1);
+  }
+
 }

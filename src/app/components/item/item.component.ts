@@ -15,6 +15,9 @@ export class ItemComponent implements OnInit {
   @Output()
   private emitindoItemParaEditar: EventEmitter<any> = new EventEmitter();
 
+  @Output()
+  private emitindoIdParaExcluir: EventEmitter<any> = new EventEmitter();
+
   faPen = faPen;
   faTrash = faTrash
 
@@ -24,6 +27,10 @@ export class ItemComponent implements OnInit {
 
   public editarItem(): void {
     this.emitindoItemParaEditar.emit(this.item);
+  }
+
+  public excluirItem(): void {
+    this.emitindoIdParaExcluir.emit(this.item.id);
   }
 
 }

@@ -6,7 +6,11 @@
       <h4 class="title-list">Lista de Compras</h4>
       <div *ngIf="this.listaDeCompras.length > 0 else mensagemListaVazia">
         <div *ngFor="let item of this.listaDeCompras">
-          <app-item [item]="item" (emitindoItemParaEditar)="editarItem($event)"></app-item>
+          <app-item [item]="item"
+            (emitindoItemParaEditar)="editarItem($event)"
+            (emitindoIdParaExcluir)="excluirItem($event)"
+          >
+          </app-item>
         </div>
       </div>
       <ng-template #mensagemListaVazia>

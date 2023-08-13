@@ -40,7 +40,8 @@ export class ListaDeCompraService {
       comprado: itemParaEditar.comprado
     }
     const id = itemParaEditar.id;
-    this.listaDeCompra.splice(Number(id)-1, 1, itemEditado);
+    const index: number = this.listaDeCompra.findIndex(item => item.id === id);
+    this.listaDeCompra.splice(index, 1, itemEditado);
   }
 
   public atualizarLocalStorage(): void {

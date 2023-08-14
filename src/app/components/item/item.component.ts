@@ -33,4 +33,8 @@ export class ItemComponent implements OnInit {
     this.emitindoIdParaExcluir.emit(this.item.id);
   }
 
+  alterarPropriedadeComprado() {
+    this.item.comprado = !this.item.comprado;
+  }
+
 }
